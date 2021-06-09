@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="userList.css">
+</head>
+
+<body style="background:#f5f5f5">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="https://upload.cc/i1/2021/06/08/gMSmoI.png" width="25" height="25"
+        class="d-inline-block align-top" alt="">
+      User Map
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Friends</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <!--整個版面分btn/search 和 friends-->
+    <div class="column" id="buttonSearchGroup">
+      <!--button-->
+      <div class="col-sm-8 btn-group " id="buttonGroup" role="group">
+        <div class="btn" id="totalUserPage">所有會員</div>
+        <div class="btn" id="totalGirlsPage">女性會員</div>
+        <div class="btn" id="totalBoysPage">男性會員</div>
+      </div>
+      <!--search-->
+      <div class="col-sm-4 input-group rounded" id="searchGroup">
+        <input type="search" class="form-control rounded" id="keyInToSearch" placeholder="搜尋" aria-label="Search"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fa fa-search"></i>
+        </span>
+      </div>
+    </div>
+    <!--friends-->
+    <div class="row" id="data-panel">
+      <!--renderUserList-->
+    </div>
+  </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center" id="paginator">
+      <!--paginator-->
+    </ul>
+  </nav>
+
+  <!-- User Modal -->
+  <div class="modal fade" id="user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body" id="user-modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="row">
+            <div class="col-sm-4" id="user-modal-image">
+              <img src="https://randomuser.me/api/portraits/men/88.jpg" width="200px" height="200px" alt="user-image"
+                class="img-fluid">
+            </div>
+            <div class="col-sm-8">
+
+              <h4 id="user-modal-name">Guillaume Vincent</h4>
+              <li id="user-modal-email">E-mail : anna-marie.kretschmann@example.com</li>
+              <li id="user-modal-gender">Gender : female</li>
+              <li id="user-modal-region">Region : DE</li>
+              <li id="user-modal-birthday">Birthday : 1998-04-10</p>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" id="BTN_beAFriend">加朋友 <img src="https://i.imgur.com/Jmkdsxc.png"></button>
+              <button type="button" class="btn" id="BTN_addToFavorite">私訊他 <i class="fa fa-heart" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="userList.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

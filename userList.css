@@ -1,0 +1,126 @@
+/* 顏色區別 */
+body {
+  background: #f5f5f5;
+}
+.container {
+  background: white;
+  border: 2px #f5f5f5 solid;
+  padding: 15px;
+  border-radius: 10px;
+}
+#data-panel {
+  align-items: center;
+}
+#userBlock {
+  border: 1px #d3caca solid;
+  border-radius: 10px;
+  flex: 0 0 48%;
+  max-width: 50%;
+  margin: 8px;
+}
+
+/* CSS */
+#totalUserPage:hover,
+#thismonthBirPage:hover,
+#totalGirlsPage:hover,
+#totalBoysPage:hover,
+#search-addon:hover {
+  background-color: rgba(29, 33, 41, 0.04);
+  cursor: pointer; /*碰到時變成滑鼠*/
+}
+#search-addon {
+  background: white;
+}
+#buttonSearchGroup {
+  display: flex;
+}
+#keyinTosearch {
+  height: 100%;
+}
+
+
+
+/*container user block*/
+.container #data-panel .row .card-img-left {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  border-radius: 15px;
+  cursor: pointer; 
+}
+
+.container #data-panel #userBlock .card-body {
+  padding: 0.5rem;
+}
+
+.container #data-panel #userBlock .card-body .show-modal .card-text {
+  cursor: pointer; 
+}
+
+.container #data-panel #userBlock .card-body .card-text:hover {
+  text-decoration: underline;
+}
+
+.container #data-panel #userBlock .card-right {
+  margin: 8px;
+  padding-top: 10%;
+  padding-right: 10px;
+}
+
+.container #data-panel #userBlock .card-right img{
+  width:20px;
+  height:20px;
+}
+
+.container #data-panel #userBlock .card-right img:hover {
+  background-color: rgba(29, 33, 41, 0.05);
+  border-radius: 80%;
+  cursor: pointer; 
+}
+
+.container #user-model .modal-dialog .modal-content #movie-modal-image img {
+  border: 3px #000000 solid;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+
+
+
+.modal .modal-dialog .modal-content #user-modal-body .row .modal-footer {
+  padding: 0.5rem;
+  border-top: 0px;
+}
+.modal
+  .modal-dialog
+  .modal-content
+  #user-modal-body
+  .row
+  .modal-footer
+  #BTN_beAFriend
+  img {
+  width: 20px;
+  height: 20px;
+}
+
+.modal
+  .modal-dialog
+  .modal-content
+  #user-modal-body
+  .row
+  .modal-footer
+  #BTN_addToFavorite
+  i {
+  width: 20px;
+  height: 20px;
+}
+
+.modal .modal-dialog .modal-content .modal-body #user-modal-image img {
+  border-radius: 50%;
+}
+
+#BTN_beAFriend,
+#BTN_addToFavorite {
+  background: #d3d3d3;
+}
