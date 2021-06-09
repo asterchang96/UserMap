@@ -1,8 +1,17 @@
 const BASE_URL = "https://lighthouse-user-api.herokuapp.com";
 const INDEX_URL = BASE_URL + "/api/v1/users/";
+const USERS_PER_PAGE = 12
+
 const dataPanel = document.querySelector("#data-panel");
 const userBlock = document.querySelector("#userBlock");
+const searchAddon = document.querySelector("#search-addon");
+const keyInToSearch =  document.querySelector("#keyInToSearch");
+
+
 const users = JSON.parse(localStorage.getItem('beFriend')) || [];
+let usersGirlOrBoyOrSearch = []; //choose girl or boy or search
+
+
 
 function renderUserList(data) {
   let rawHTML = "";
@@ -67,7 +76,25 @@ function removeToFriend(id) {
 }
 
 
+//幾個會員
+function renderPaginator(amount){
+  const numberOfPage = Math.ceil(amount / USERS_PER_PAGE)
+  let rawHTML = ''
+  for (let page = 1; page <= numberOfPage; page++){
+    rawHTML += `
+      <li class="page-item"><a class="page-link" href="#" data-page="${page}">${page}</a></li>
+    `
+  }
+  paginator.innerHTML = rawHTML;
+}
 
+//顯示對應頁
+function getUsersByPage(page){
+
+  const data = usersGirlOrBoyOrSearch.length ? usersGirlOrBoyOrSearch : users
+  const startIndex = (page - 1) * USERS_PER_PAGE
+  return data.slice(startIndex, startIndex + USERS_PER_PAGE)
+}
 
 
 //點擊more後，做資料替換
@@ -80,6 +107,31 @@ dataPanel.addEventListener("click", function onPanelClicked(event) {
   }
 });
 
+searchAddon.addEventListener("click", function onKeyInToSearchSubmitted(event){
+  event.preventDefault()
+  const keyWord = keyInToSearch.value.trim().toLowerCase();
+  
+  //無效字串
+  if(!keyWord.length){
+    return alert('請輸入有效字串')
+  }
 
-renderUserList(users);
+  //有效 
+  usersGirlOrBoyOrSearch = users.filter(user =>
+    (user.name + " " + user.surname).toLowerCase().includes(keyWord)  //true or false
+  )
+
+  //沒有符合條件
+  if(usersGirlOrBoyOrSearch.length === 0){
+     return alert(`您輸入的關鍵字：${keyWord} 沒有條件符合者`)
+  }
+
+  //畫面
+  renderPaginator(usersGirlOrBoyOrSearch.length)
+  renderUserList(getUsersByPage(1));
+})
+
+
+renderUserList(getUsersByPage(1));
+renderPaginator(users.length)
 

@@ -12,8 +12,6 @@ const paginator = document.querySelector("#paginator");
 
 
 const users = [];
-const userGirls = [];
-const userBoys = [];
 let usersGirlOrBoyOrSearch = []; //choose girl or boy or search
 
 function renderUserList(data) {
@@ -140,7 +138,6 @@ paginator.addEventListener('click', function onPaginatorClicked(event){
   console.log(event.target.dataset.page)
 
   const page = Number(event.target.dataset.page)
-  // TODO 判斷目前所在男/全/女
   renderUserList(getUsersByPage(page))
 })
 
