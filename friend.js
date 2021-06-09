@@ -131,6 +131,28 @@ searchAddon.addEventListener("click", function onKeyInToSearchSubmitted(event){
   renderUserList(getUsersByPage(1));
 })
 
+//listen to bir /all
+buttonSearchGroup.addEventListener("click", function onUsersClassClicked(event) {
+
+  if(event.target.matches("#thisMonthBirPage")){ //本月壽星
+    usersGirlOrBoyOrSearch = users.filter(user => (user.birthday).slice(5,7) === nowMonth() ) //切月份
+  }else if (event.target.matches("#totalFriendsPage")){ //所有朋友
+    usersGirlOrBoyOrSearch = []
+  }
+
+  const pageData = usersGirlOrBoyOrSearch.length ? usersGirlOrBoyOrSearch : users
+  renderUserList(getUsersByPage(1)); 
+  renderPaginator(pageData.length)
+});
+
+
+//取出目前月份
+function nowMonth(){
+  let nowMonth = (new Date().getMonth()) + 1;
+  if (nowMonth < 10) nowMonth = "0" + nowMonth.toString()
+  else nowMonth = nowMonth.toString()
+  return nowMonth
+}
 
 renderUserList(getUsersByPage(1));
 renderPaginator(users.length)
