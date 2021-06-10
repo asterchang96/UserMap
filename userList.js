@@ -66,7 +66,6 @@ function showUserModal(id) {
 }
 
 function addToFriend(id) {
-  console.log(id)
   const friendsList = JSON.parse(localStorage.getItem('beFriend')) || []
   const friend = users.find(friend => friend.id === id)
 
@@ -77,7 +76,7 @@ function addToFriend(id) {
   friendsList.push(friend)
   console.log(friendsList)
   localStorage.setItem('beFriend', JSON.stringify(friendsList))
-  return alert(`你和 ${friend.name} ${friend.surname} 成為朋友了~`)
+  return alert(`恭喜你和 ${friend.name} ${friend.surname} 成為朋友了!`)
 }
 
 //幾個會員
@@ -113,19 +112,31 @@ dataPanel.addEventListener("click", function onPanelClicked(event) {
 });
 
 
+//恢復顏色
+function colorDefault(event){
+  let button = event.target.parentElement.children
+  button[0].style.backgroundColor = `white`;
+  button[1].style.backgroundColor = `white`;
+  button[2].style.backgroundColor = `white`;
+}
+
+function buttonClicked(event){
+  event.target.style.backgroundColor = `#DCDCDC`; //click and color change
+  event.target.style.borderRadius = `5%`
+}
 
 //listen to boys /girls /all
 buttonSearchGroup.addEventListener("click", function onUsersClassClicked(event) {
-
+  colorDefault(event)
   if(event.target.matches("#totalGirlsPage")){
     usersGirlOrBoyOrSearch = users.filter(user => user.gender === "female")
   }else if (event.target.matches("#totalBoysPage")){
-    usersGirlOrBoyOrSearch = users.filter(user => user.gender === "male") 
+    usersGirlOrBoyOrSearch = users.filter(user => user.gender === "male")
   }else if (event.target.matches("#totalUserPage")){
     usersGirlOrBoyOrSearch = []
   }
 
-
+  buttonClicked(event)
   const pageData = usersGirlOrBoyOrSearch.length ? usersGirlOrBoyOrSearch : users
   renderUserList(getUsersByPage(1)); 
   renderPaginator(pageData.length)

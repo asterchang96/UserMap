@@ -42,8 +42,8 @@
     <div class="column" id="buttonSearchGroup">
       <!--button-->
       <div class="col-sm-8 btn-group " id="buttonGroup" role="group">
-        <div class="btn" id="totalFriendsPage">我的朋友</div>
-        <div class="btn" id="thisMonthBirPage">本月壽星</div>
+        <div class="btn" id="totalFriendsPage">My Friends</div>
+        <div class="btn" id="thisMonthBirPage">Birthday</div>
         <!--<div class="btn" id="friendsMap">朋友地圖</div>-->
       </div>
       <!--search-->
@@ -70,23 +70,23 @@
   <!-- User Modal -->
   <div class="modal fade" id="user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="min-width: 650px;">
+      <div class="modal-content" style="border-radius:1rem;">
         <div class="modal-body" id="user-modal-body">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <div class="row">
+          <div class="row" >
             <div class="col-sm-4" id="user-modal-image">
               <img src="https://randomuser.me/api/portraits/men/88.jpg" width="200px" height="200px" alt="user-image"
                 class="img-fluid">
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-8" style="padding-top: 15px">
               <h4 id="user-modal-name">Guillaume Vincent</h4>
-              <li id="user-modal-email">E-mail : anna-marie.kretschmann@example.com</li>
-              <li id="user-modal-gender">Gender : female</li>
-              <li id="user-modal-region">Region : DE</li>
-              <li id="user-modal-birthday">Birthday : 1998-04-10</p>
+              <div id="user-modal-region">Region : DE</div>
+              <div id="user-modal-gender">Gender : female</div>
+              <div id="user-modal-birthday">Birthday : 1998-04-10</div>
+              <div id="user-modal-email">E-mail : anna-marie.kretschmann@example.com</div>
             </div>
           </div>
         </div>

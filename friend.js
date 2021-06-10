@@ -131,15 +131,36 @@ searchAddon.addEventListener("click", function onKeyInToSearchSubmitted(event){
   renderUserList(getUsersByPage(1));
 })
 
+paginator.addEventListener('click', function onPaginatorClicked(event){
+  if(event.target.tagName !== 'A') return
+  console.log(event.target.dataset.page)
+
+  const page = Number(event.target.dataset.page)
+  renderUserList(getUsersByPage(page))
+})
+
+//button color default
+function buttonDefault(event){
+  let button = event.target.parentElement.children
+  button[0].style.backgroundColor = `white`;
+  button[1].style.backgroundColor = `white`;
+}
+
+function buttonClicked(event){
+  event.target.style.backgroundColor = `#DCDCDC`; //click and color change
+  event.target.style.borderRadius = `5%`
+}
+
 //listen to bir /all
 buttonSearchGroup.addEventListener("click", function onUsersClassClicked(event) {
-
+  buttonDefault(event)
   if(event.target.matches("#thisMonthBirPage")){ //本月壽星
     usersGirlOrBoyOrSearch = users.filter(user => (user.birthday).slice(5,7) === nowMonth() ) //切月份
   }else if (event.target.matches("#totalFriendsPage")){ //所有朋友
     usersGirlOrBoyOrSearch = []
   }
 
+  buttonClicked(event);
   const pageData = usersGirlOrBoyOrSearch.length ? usersGirlOrBoyOrSearch : users
   renderUserList(getUsersByPage(1)); 
   renderPaginator(pageData.length)

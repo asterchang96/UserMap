@@ -1,6 +1,7 @@
 /* 顏色區別 */
 body {
   background: #f5f5f5;
+  font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
 }
 .container {
   background: white;
@@ -13,7 +14,7 @@ body {
 }
 #userBlock {
   border: 1px #d3caca solid;
-  border-radius: 10px;
+  border-radius:10px;
   flex: 0 0 48%;
   max-width: 50%;
   margin: 8px;
@@ -21,20 +22,21 @@ body {
 
 /* CSS */
 #totalUserPage:hover,
-#thismonthBirPage:hover,
 #totalGirlsPage:hover,
 #totalBoysPage:hover,
 #search-addon:hover {
   background-color: rgba(29, 33, 41, 0.04);
   cursor: pointer; /*碰到時變成滑鼠*/
 }
+
+
 #search-addon {
   background: white;
 }
 #buttonSearchGroup {
   display: flex;
 }
-#keyinTosearch {
+#keyInToSearch {
   height: 100%;
 }
 
@@ -42,8 +44,8 @@ body {
 
 /*container user block*/
 .container #data-panel .row .card-img-left {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   margin: 10px;
   border-radius: 15px;
   cursor: pointer; 
@@ -73,9 +75,14 @@ body {
 }
 
 .container #data-panel #userBlock .card-right img:hover {
-  background-color: rgba(29, 33, 41, 0.05);
-  border-radius: 80%;
+  background-color: rgba(29, 33, 41, 0.1);
+  border-radius: 10%;
   cursor: pointer; 
+}
+
+.container #user-model .modal-dialog .modal-content{
+  height:250px;
+  
 }
 
 .container #user-model .modal-dialog .modal-content #movie-modal-image img {
@@ -86,7 +93,9 @@ body {
 }
 
 
-
+.modal-dialog{
+  max-width: 600px;
+}
 
 .modal .modal-dialog .modal-content #user-modal-body .row .modal-footer {
   padding: 0.5rem;
@@ -123,4 +132,14 @@ body {
 #BTN_beAFriend,
 #BTN_addToFavorite {
   background: #d3d3d3;
+}
+
+@media screen and (max-width: 1000px) {
+  #userBlock {
+  border: 1px #d3caca solid;
+  border-radius: 10px;
+  flex: 0 0 48%;
+  max-width: 50%;
+  margin: 8px;
+}
 }
