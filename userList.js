@@ -133,16 +133,7 @@ buttonSearchGroup.addEventListener("click", function onUsersClassClicked(event) 
 
 });
 
-paginator.addEventListener('click', function onPaginatorClicked(event){
-  if(event.target.tagName !== 'A') return
-  console.log(event.target.dataset.page)
-
-  const page = Number(event.target.dataset.page)
-  renderUserList(getUsersByPage(page))
-})
-
-
-// TODO 之後併入buttonSearchGroup
+//listen to search
 searchAddon.addEventListener("click", function onKeyInToSearchSubmitted(event){
   event.preventDefault()
   const keyWord = keyInToSearch.value.trim().toLowerCase();
@@ -168,7 +159,13 @@ searchAddon.addEventListener("click", function onKeyInToSearchSubmitted(event){
 })
 
 
+paginator.addEventListener('click', function onPaginatorClicked(event){
+  if(event.target.tagName !== 'A') return
+  console.log(event.target.dataset.page)
 
+  const page = Number(event.target.dataset.page)
+  renderUserList(getUsersByPage(page))
+})
 
 axios
   .get(INDEX_URL)
